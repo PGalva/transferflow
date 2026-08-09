@@ -5,9 +5,9 @@ require 'net/http'
 class Usuario < Conta
 
   def Transferir(valor, destinatario)
-    uri = URI('https://util.devi.tools/api/v2/authorize')
-    response = Net::HTTP.get(uri)
-    data = JSON.parse(response)
+    uri = URI('https://util.devi.tools/api/v2/authorize') #recebe a resposta da API de autorização para verificar se a transferência pode ser realizada
+    response = Net::HTTP.get(uri) #faz a requisição GET para obter a autorização da transferência
+    data = JSON.parse(response) #recebe a resposta da API e converte para um hash Ruby
     
     if @saldo >= valor && data["authorization"] == "true"
       @saldo -= valor

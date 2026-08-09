@@ -42,31 +42,4 @@ class Conta
       end
   private
 
-
-
-  def receber(valor)
-
-    @saldo += valor
-
-    
-    uri = URI('https://util.devi.tools/api/v1/notify')
-    
-    corpo_da_mensagem = { 
-      message: "Você recebeu um pagamento de R$#{valor}!",
-      destinatario: self.email 
-    }.to_json
-
-    response = Net::HTTP.post(
-      uri, 
-      corpo_da_mensagem, 
-      "Content-Type" => "application/json"
-    )
-
-    if response.code == "200" || response.code == "204"
-      puts "Notificação enviada com sucesso para #{@nome}!"
-    else
-      puts "Alerta: Falha ao enviar notificação (Status: #{response.code})"
-    end
-  end
-
 end
