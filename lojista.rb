@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require_relative 'conta'
+
 class Lojista < Conta
   
       def Receber(valor, remetente)

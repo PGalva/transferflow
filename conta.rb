@@ -1,6 +1,6 @@
   #!/usr/bin/env ruby
 
-  require = 'json'
+  require 'json'
   require 'net/http'
 
 class Conta
@@ -33,7 +33,7 @@ class Conta
           ja_existe << email
           cpf_existe << cpf
 
-          new(nome, cpf, email, senha)
+          new(nome, cpf, email, senha, saldo)
         
         if saldo < 0
           puts "Saldo inicial não pode ser negativo."
