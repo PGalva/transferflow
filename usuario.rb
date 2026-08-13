@@ -1,9 +1,7 @@
 require_relative 'conta'
 require_relative 'notificationservice'
-require 'json'
-require 'net/http'
-require 'authorizeFake'
-require 'AuthorizeHttp'
+require_relative 'authorize_fake'
+require_relative 'authorize_http'
 
 class Usuario < Conta
   
