@@ -48,6 +48,8 @@ class Conta
 
 
   def receber(valor)   # Adicionar o autorize sem precisar passar para a API
+
+    
     
       #uri = URI('https://util.devi.tools/api/v1/notify')
 

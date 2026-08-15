@@ -12,4 +12,8 @@ Brama = Lojista.create("Brama", "987.654.321-00", "brama@email.com", "senha456",
 
 autorizado = AuthorizeFake.new
 
-joao.transferir(autorizado, -500, Brama);
+joao.transferir(autorizado, 100, Brama);
+
+
+puts joao.saldo
+#puts Brama.saldo

@@ -12,13 +12,14 @@ class Usuario < Conta
       return 
     end
     
-    if @saldo >= valor
-          @saldo -= valor
+    unless @saldo <= valor
+      puts "Transferência de R$#{valor} realizada com sucesso para #{destinatario.nome}."
+      return
+    end
+         @saldo -= valor
           destinatario.receber(valor)
           puts "Transferência de R$#{valor} realizada com sucesso para #{destinatario.nome}."
-      else
-        puts "Saldo insuficiente para realizar a transferência."
-      end
+        
     
 
   end
