@@ -2,8 +2,6 @@
 
   require 'json'
   require 'net/http'
-  require_relative 'usuario'
-
 class Conta
     attr_accessor :nome, :cpf, :email, :senha, :saldo
     
@@ -49,7 +47,7 @@ class Conta
 
 
 
-  def receber(valor)
+  def receber(valor)   # Adicionar o autorize sem precisar passar para a API
     
       uri = URI('https://util.devi.tools/api/v1/notify')
 
@@ -72,5 +70,7 @@ class Conta
       puts "Alerta: Falha ao enviar notificação (Status: #{response.code})"
     end
   end
+
+end
 
 end

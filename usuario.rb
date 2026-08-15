@@ -12,7 +12,7 @@ class Usuario < Conta
       return 
     end
     
-    if saldo >= valor
+    if @saldo >= valor
           @saldo -= valor
           destinatario.receber(valor)
           puts "Transferência de R$#{valor} realizada com sucesso para #{destinatario.nome}."
