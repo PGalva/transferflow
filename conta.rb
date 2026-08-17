@@ -48,12 +48,10 @@ class Conta
 
 
   def receber(valor)   # Adicionar o autorize sem precisar passar para a API
-
-    
     
       #uri = URI('https://util.devi.tools/api/v1/notify')
 
-    if @saldo += valor  #condicao para verificar se o destinatário recebeu o valor
+  @saldo += valor  
    
       #corpo_da_mensagem = { 
       #message: "Você recebeu um pagamento de R$#{valor}!",
@@ -68,9 +66,8 @@ class Conta
 
     #if response.code == "200" || response.code == "204"
       puts "Notificação enviada com sucesso para #{@nome}!"
-    else
-      puts "Alerta: Falha ao enviar notificação (Status: #{response.code})"
-    end
+  
+  
   end
 
 end
