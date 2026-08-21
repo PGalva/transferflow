@@ -16,10 +16,6 @@ joao.transferir(negado, 100, Brama)
 
 autorizado = AuthorizeFake.new(true)
 
-joao.transferir(autorizado, 100, Brama)    # sucesso
-joao.transferir(autorizado, -500, Brama)   # valor inválido
-joao.transferir(autorizado, 0, Brama)      # valor inválido
-joao.transferir(autorizado, 999999, Brama) # saldo insuficiente
-
+joao.transferir(autorizado, 100, Brama)
 puts joao.saldo
 puts Brama.saldo
