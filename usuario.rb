@@ -2,6 +2,7 @@ require_relative 'conta'
 require_relative 'notificationservice'
 require_relative 'authorize_fake'
 require_relative 'authorize_http'
+require_relative 'saldo_insuficiente_error'
 
 class Usuario < Conta
   
@@ -15,8 +16,9 @@ class Usuario < Conta
       end
       
       if cents > saldo 
-      raise "Saldo insuficiente." 
-      
+        raise SaldoInsuficienteError,"Saldo insuficiente." 
+      end
+
     unless autoriza.autorizado?
       puts "Transferência não autorizada."
       return 
