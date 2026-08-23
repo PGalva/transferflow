@@ -17,5 +17,5 @@ joao.transferir(negado, 100, Brama)
 autorizado = AuthorizeFake.new(true)
 
 joao.transferir(autorizado, 100, Brama)
-puts joao.saldo
-puts Brama.saldo
+puts joao.saldo_em_reais
+puts Brama.saldo_em_reais

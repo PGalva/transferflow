@@ -55,12 +55,15 @@
     
     end
 
+
+
+    def saldo_em_reais
+    saldo / 100.0
+    end
+
   private
-  
+
     def to_centavos(valor)
     (valor*100).to_i
     end
-
-
-
 end
