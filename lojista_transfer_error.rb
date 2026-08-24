@@ -1,0 +1,3 @@
+class LojistaTransferError < StandardError
+  
+end
