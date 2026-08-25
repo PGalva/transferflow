@@ -17,10 +17,13 @@ Brama = Lojista.create("Brama", "987.654.321-00", "brama@email.com", "senha456",
 
 autorizado = AuthorizeFake.new(true)
 
-begin
-  joao.transferir(autorizado, 999999, Brama)
-rescue ZeroDivisionError => e
-  puts "capturei"
-end
+# begin
+#   joao.transferir(autorizado, 999999, Brama)
+# rescue ZeroDivisionError => e
+#   puts "capturei"
+# end
 
-puts "cheguei aqui?"
+# puts "cheguei aqui?"
+# 
+
+Brama.lojista_transferencia(autorizado,100,joao)

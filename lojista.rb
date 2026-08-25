@@ -8,11 +8,8 @@ require_relative 'usuario'
 class Lojista < Conta
 
 
-  def lojista_transferencia
-
-    transfer = transferir 
-
-    if transfer
+  def lojista_transferencia(autoriza, valor, destinatario)
+    if autoriza.autorizado?
       raise LojistaTransferError, "Sem permissao para transferencia"
     end
 

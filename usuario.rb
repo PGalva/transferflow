@@ -19,6 +19,8 @@ class Usuario < Conta
         raise SaldoInsuficienteError,"Saldo insuficiente." 
       end
 
+    
+
     unless autoriza.autorizado?
       puts "Transferência não autorizada."
       return 
