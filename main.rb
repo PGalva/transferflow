@@ -26,4 +26,4 @@ autorizado = AuthorizeFake.new(true)
 # puts "cheguei aqui?"
 # 
 
-Brama.lojista_transferencia(autorizado,100,joao)
+Brama.transferir(autorizado,100,joao)

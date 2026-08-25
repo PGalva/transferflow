@@ -56,7 +56,6 @@
     end
 
 
-
     def saldo_em_reais
     saldo / 100.0
     end
