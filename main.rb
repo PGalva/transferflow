@@ -26,4 +26,4 @@ autorizado = AuthorizeFake.new(true)
 # puts "cheguei aqui?"
 # 
 
-Brama.transferir(autorizado,100,joao)
+Usuario.create("A", "123.456.789-00", "a@x.com", "s", 100)

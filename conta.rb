@@ -13,7 +13,11 @@
         @email = email
         @senha = senha
         @saldo = to_centavos(saldo)
+
+        normalize_data
       end
+
+      
 
           def self.create(nome, cpf, email, senha, saldo)
 
@@ -39,6 +43,8 @@
             ja_existe << email
             cpf_existe << cpf
 
+            
+
     
         
 
@@ -52,7 +58,7 @@
     
         puts "Notificação enviada com sucesso para #{@nome}!"
     
-    
+
     end
 
 
@@ -64,5 +70,10 @@
 
     def to_centavos(valor)
     (valor*100).to_i
+    end
+
+    def normalize_data
+     @cpf = @cpf.gsub(/./,/-/,"") if @cpf
+     @email = @email.downcase if @email
     end
 end
