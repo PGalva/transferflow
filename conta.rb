@@ -73,7 +73,7 @@
     end
 
     def normalize_data
-     @cpf = @cpf.gsub(/./,/-/,"") if @cpf
+     @cpf = @cpf.gsub(/\D/,"") if @cpf
      @email = @email.downcase if @email
     end
 end
