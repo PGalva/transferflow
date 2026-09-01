@@ -15,6 +15,7 @@
         @saldo = to_centavos(saldo)
 
         normalize_data
+
       end
 
       
@@ -47,7 +48,7 @@
 
     
         
-
+          
           new(nome, cpf, email, senha, saldo)
         end
 

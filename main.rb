@@ -26,4 +26,15 @@ autorizado = AuthorizeFake.new(true)
 # puts "cheguei aqui?"
 # 
 
-Usuario.create("A", "123.456.789-00", "a@x.com", "s", 100)
+usuario1 = Usuario.create("A", "112.776.789-00", "a@x.com", "s", 100)
+usuario2 = Usuario.create("A", "123.446.700-00", "a@xadadada.com", "s", 1000)
+
+
+
+puts "\n--- Dados dos Usuários Criados ---"
+puts "Nome: #{joao.nome} | CPF: #{joao.cpf} | Email: #{joao.email} | Saldo: #{joao.saldo}"
+puts "Nome: #{usuario1.nome} | CPF: #{usuario1.cpf} | Email: #{usuario1.email} | Saldo: #{usuario1.saldo}"
+puts "Nome: #{usuario2.nome} | CPF: #{usuario2.cpf} | Email: #{usuario2.email} | Saldo: #{usuario2.saldo}"
+
+puts "\n--- Dados dos Lojistas Criados ---"
+puts "Nome: #{Brama.nome} | CPF: #{Brama.cpf} | Email: #{Brama.email} | Saldo: #{Brama.saldo}"
