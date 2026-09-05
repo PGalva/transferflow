@@ -26,8 +26,8 @@ autorizado = AuthorizeFake.new(true)
 # puts "cheguei aqui?"
 # 
 
-usuario1 = Usuario.create("A", "112.776.789-00", "a@x.com", "s", 100)
-usuario2 = Usuario.create("A", "123.446.700-00", "a@xadadada.com", "s", 1000)
+usuario1 = Usuario.create("A", "112.776.000S-00", "AAAAA@x.com", "s", 100)
+usuario2 = Usuario.create("A", "100.446.700-00", "AAAA@xadadada.com", "s", 1000)
 
 
 

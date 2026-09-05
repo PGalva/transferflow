@@ -7,20 +7,20 @@
       
 
       
-      def initialize(nome, cpf, email, senha, saldo)
+      def initialize(nome, cpf, email, senha, saldo) # metodo de instancia
         @nome = nome
         @cpf = cpf
         @email = email
         @senha = senha
         @saldo = to_centavos(saldo)
 
-        normalize_data
+        normalize = normalize_data(@cpf, @email)
 
       end
 
       
 
-          def self.create(nome, cpf, email, senha, saldo)
+          def self.create(nome, cpf, email, senha, saldo) # metodo de classe
 
             
             ja_existe = @@email_exists ||= []
@@ -73,8 +73,8 @@
     (valor*100).to_i
     end
 
-    def normalize_data
-     @cpf = @cpf.gsub(/\D/,"") if @cpf
-     @email = @email.downcase if @email
+    def normalize_data(cpf, email)
+     cpf = cpf.gsub(/\D/,"") if cpf
+     email = email.downcase if email
     end
 end
