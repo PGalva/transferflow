@@ -21,12 +21,12 @@
             ja_existe = @@email_exists ||= []
             cpf_existe = @@cpf_exists ||= []
 
-              if ja_existe.include?(email)
+              if ja_existe.include?(self.normalize_email(email))
                 puts "Email já cadastrado"
               return nil
               end
 
-              if cpf_existe.include?(cpf)
+              if cpf_existe.include?(self.normalize_cpf(cpf))
             puts "CPF já cadastrado"
               return nil
               end
@@ -36,8 +36,8 @@
               return nil
             end
 
-            ja_existe << email
-            cpf_existe << cpf
+            ja_existe << self.normalize_email(email)
+            cpf_existe << self.normalize_cpf(cpf)
 
             
 
@@ -62,17 +62,19 @@
     saldo / 100.0
     end
 
-  private
-
-    def to_centavos(valor)
-    (valor*100).to_i
-    end
-
-    def self.normalize_cpf(cpf)
+      def self.normalize_cpf(cpf)
      cpf = cpf.gsub(/\D/,"") if cpf
     end
 
      def self.normalize_email(email)
      email = email.downcase if email
     end
+
+  private
+
+    def to_centavos(valor)
+    (valor*100).to_i
+    end
+
+
 end
