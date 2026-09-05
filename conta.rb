@@ -9,8 +9,8 @@
       
       def initialize(nome, cpf, email, senha, saldo) # metodo de instancia
         @nome = nome
-        @cpf = self.normalize_cpf(cpf)
-        @email = self.normalize_email(email)
+        @cpf = Conta.normalize_cpf(cpf)
+        @email = Conta.normalize_email(email)
         @senha = senha
         @saldo = to_centavos(saldo)
       end
