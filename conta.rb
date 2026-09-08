@@ -49,7 +49,7 @@
 
 
 
-    def receber(valor)   
+    def receber(valor_em_centavos)   
     @saldo += valor  
     
         puts "Notificação enviada com sucesso para #{@nome}!"
