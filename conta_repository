@@ -1,0 +1,20 @@
+require_relative 'conta'
+
+class ContaRepository < Conta
+  def initialize(conta_existente, cpf_existente)
+    @conta_existente = conta_existente
+    @cpf_existente = cpf_existente
+  end
+  def self.create(conta_existente, cpf_existente)
+    new(conta_existente, cpf_existente)
+  end
+
+  def conta_exists?(email)
+    if email_exists?
+      raise "Email já cadastrado"
+    else
+      email include?(@conta_existente)
+    end 
+    
+  end
+end
