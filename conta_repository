@@ -1,11 +1,22 @@
 require_relative 'conta'
 
 class ContaRepository
+  
+
   def initialize
     @contas = []
   end
 
-def add(conta)
+  def validate(conta)
+    if @contas.any?
+      raise "Conta já cadastrada"
+    return false
+     end
+
+    end
+
+   def add(conta)
     @contas << conta
-end
+    end
+
 end
