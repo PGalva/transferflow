@@ -14,7 +14,17 @@ class ContaRepository < Conta
       raise "Email já cadastrado"
     else
       email include?(@conta_existente)
+      @conta_existente << email
     end 
+
+    def cpf_exists?(cpf)
+      if cpf_exists?
+        raise "CPF já cadastrado"
+      else
+        cpf include?(@cpf_existente)
+        @cpf_existente << cpf
+      end
+    end
     
   end
 end
