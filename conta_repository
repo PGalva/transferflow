@@ -7,16 +7,20 @@ class ContaRepository
     @contas = []
   end
 
-  def validate(conta)
-    if @contas.any?
-      raise "Conta já cadastrada"
+  def validate?(conta)
+    if @contas.any? { |c| c.cpf == conta.cpf || c.email == conta.email}
     return false
-     end
-
+    else 
+      return true
     end
+  end
+
+  
 
    def add(conta)
+    if validate?(conta)
     @contas << conta
     end
+  end
 
 end

@@ -2,6 +2,7 @@
 
     require 'json'
     require 'net/http'
+    require_relative 'conta_repository'
   class Conta
       attr_accessor :nome, :cpf, :email, :senha, :saldo
       
@@ -14,37 +15,22 @@
         @senha = senha
         @saldo = to_centavos(saldo)
       end
-
-
-          def self.create(nome, cpf, email, senha, saldo) # metodo de classe
-
-            ja_existe = @@email_exists ||= []
-            cpf_existe = @@cpf_exists ||= []
-
-              if ja_existe.include?(self.normalize_email(email))
-                puts "Email já cadastrado"
-              return nil
-              end
-
-              if cpf_existe.include?(self.normalize_cpf(cpf))
-            puts "CPF já cadastrado"
-              return nil
-              end
+          def self.create(nome, cpf, email, senha, saldo, conta_repository) # metodo de classe
+            
 
             if saldo < 0
               puts "Saldo inicial não pode ser negativo."
               return nil
-            end
-
-            ja_existe << self.normalize_email(email)
-            cpf_existe << self.normalize_cpf(cpf)
-
-            
-
-    
+            end 
         
           
-          new(nome, cpf, email, senha, saldo)
+         conta = new(nome, cpf, email, senha, saldo)
+         if conta_repository.validate?(conta)
+         return false
+         else
+         conta_repository.add(conta)
+         return conta
+         end
         end
 
 
