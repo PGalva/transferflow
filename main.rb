@@ -39,5 +39,13 @@ autorizado = AuthorizeFake.new(true)
 # puts "\n--- Dados dos Lojistas Criados ---"
 # puts "Nome: #{Brama.nome} | CPF: #{Brama.cpf} | Email: #{Brama.email} | Saldo: #{Brama.saldo}"
 
-Usuario.create("A", "123.456.789-00", "a@x.com", "s", 100)
-Usuario.create("B", "12345678900", "b@x.com", "s", 100)
+# Usuario.create("A", "123.456.789-00", "a@x.com", "s", 100)
+# Usuario.create("B", "12345678900", "b@x.com", "s", 100)
+
+
+require_relative 'conta_repository'
+require_relative 'conta'
+
+repo = ContaRepository.new
+conta = Conta.new("A", "111", "a@x.com", "s", 100)
+repo.validate?(conta)

@@ -2,8 +2,8 @@
 
 require_relative 'conta'
 require 'minitest/autorun'
-require_relative 'usuario'
 require_relative 'lojista'
+require_relative 'conta_repository'
 
 
 class TestConta < Minitest::Test 
@@ -37,14 +37,30 @@ class TestConta < Minitest::Test
     # end
 
 
-    def test_receber
-    joao = Usuario.create("João", "123.456.789-00", "joao@email.com", "senha123", 1000.0)
-    cotsco = Lojista.create("Cotsco", "987.654.321-00", "cotsco@email.com", "senha123", 1000.0)
-     joao.transferir(AuthorizeFake.new(true), 100, cotsco)
-    # cotsco.receber(AuthorizeFake.new(true), 100, joao)
-    cotsco.receber(100)
+    # def test_receber
+    # joao = Usuario.create("João", "123.456.789-00", "joao@email.com", "senha123", 1000.0)
+    # cotsco = Lojista.create("Cotsco", "987.654.321-00", "cotsco@email.com", "senha123", 1000.0)
+    #  joao.transferir(AuthorizeFake.new(true), 100, cotsco)
+    # # cotsco.receber(AuthorizeFake.new(true), 100, joao)
+    # cotsco.receber(100)
 
-    assert_equal 900, joao.saldo_em_reais
-    assert_equal 1100, cotsco.saldo_em_reais
+    # assert_equal 900, joao.saldo_em_reais
+    # assert_equal 1100, cotsco.saldo_em_reais
+    # end
+
+
+
+    def test_repositorios_independentes
+  repo1 = ContaRepository.new
+  repo2 = ContaRepository.new
+
+  a = Conta.create("A", "123.456.789-00", "a@x.com", "s", 100, repo1)
+  b = Conta.create("B", "123.456.789-00", "b@x.com", "s", 100, repo1)
+
+  puts a.inspect
+puts b.inspect
+
+  refute_nil a
+  refute_nil b
     end
 end

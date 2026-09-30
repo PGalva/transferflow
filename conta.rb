@@ -25,12 +25,12 @@
         
           
          conta = new(nome, cpf, email, senha, saldo)
-         if conta_repository.validate?(conta)
-         return false
-         else
-         conta_repository.add(conta)
-         return conta
+
+         if conta_repository.exists?(conta)
+           return nil
          end
+         conta_repository.add(conta)
+         
         end
 
 
