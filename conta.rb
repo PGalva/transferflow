@@ -37,12 +37,10 @@
 
     def receber(valor_em_centavos)   
     @saldo += valor_em_centavos  
-    
-        puts "Notificação enviada com sucesso para #{@nome}!"
-    
-
     end
-
+    def debitar(valor_em_centavos)
+    @saldo -= valor_em_centavos
+    end
 
     def saldo_em_reais
     saldo / 100.0
