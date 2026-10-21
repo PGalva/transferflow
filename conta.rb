@@ -19,7 +19,6 @@
             
 
             if saldo < 0
-              puts "Saldo inicial não pode ser negativo."
               return nil
             end 
         
@@ -53,8 +52,6 @@
      def self.normalize_email(email)
      email = email.downcase if email
     end
-
-  private
 
     def to_centavos(valor)
     (valor*100).to_i
