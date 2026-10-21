@@ -1,26 +1,25 @@
 class TransferenciaService
-  def transferir(valor,transferencia, autoriza)
+  def transferir(remetente, valor, destinatario, autoriza)
     
-    cents = transferencia.to_centavos(valor)
+    cents = remetente.to_centavos(valor)
 
     if cents <= 0
-      puts "Valor de transferência inválido. Deve ser maior que zero."
+      raise SaldoInvalidoError, "Valor inválido. Deve ser maior que zero."
       return
     end
 
-    if cents > transferencia.saldo 
+    if cents > remetente.saldo 
       raise SaldoInsuficienteError,"Saldo insuficiente." 
     end
 
     unless autoriza.autorizado?
-      puts "Transferência não autorizada."
+      raise NaoautorizaError, "Transferência não autorizada."
       return 
     end
 
-    transferencia.saldo -= cents
-    transferencia.destinatario.receber(cents)
-    transferencia.debitar(cents)
-    puts "Transferência de R$#{valor} realizada com sucesso para #{transferencia.destinatario.nome}."
+      remetente.debitar(cents)
+    destinatario.receber(cents)
+    puts "Transferência de R$#{valor} realizada com sucesso para #{destinatario.nome}."
         
   end 
 
